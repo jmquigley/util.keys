@@ -31,7 +31,7 @@ The use case for this module is to generate unique keys used by a React control 
 
 ## Usage
 
-'''javascript
+```javascript
 import * as React from 'react';
 import {Keys} from 'util.keys';
 
@@ -57,7 +57,7 @@ export class Foo extends React.Component<P, S> {
 		);
     }
 }
-'''
+```
 
 When `Foo` is rendered the key values associated with each instance in `controls` is a unique UUID instead of the index of the array.  On each re-render of the `controls` array the index values retrieved by `this._keys.at(i)` resolves back to the same UUID for that instance.  If one were to create another instance of `Foo` then it would have its own set of UUID values for each index of its `controls` array.  This ensures unique keys across instances.
 
