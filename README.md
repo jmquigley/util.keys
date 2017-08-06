@@ -36,26 +36,25 @@ import * as React from 'react';
 import {Keys} from 'util.keys';
 
 export class Foo extends React.Component<P, S> {
-    private _keys = new Keys();
+	private _keys = new Keys();
 
-    constructor(props: any) {
-  		super(props);
-    }
+	constructor(props: any) {
+		super(props);
+	}
 
-    render() {
-	    let controls = [];
+	render() {
+		let controls = [];
 		for (let i=0; i<20; i++) {
 			controls.push(
 				<div key={this._keys.at(i)}>foo</div>
 			);
 		}
-
-	    return (
+		return (
 			<div>
-                {controls}
-	        </div>
+			{controls}
+			</div>
 		);
-    }
+	}
 }
 ```
 
