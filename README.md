@@ -65,5 +65,5 @@ The index values given to `.at(idx)` do not need to be sequential.  Any number c
 
 ## API
 
-- `Keys({cacheSize: number = 25})` - Use this class to create a new instance of the key generator.  The cache size determines how many UUID keys will be kept in a cache when this object is instantiated.  When key retrievals exceed this value, then the cache is regenerated with a new set of values for that instance to choose from.  The overall "key list" is maintained.
-- `.at({idx: number}) => UUID` - Retrieves a UUID value based on a given index value.  Each call to the same index value will return the same UUID value.
+- [Key()](docs/index.md#Keys)
+- [.at()](docs/index.md#Keys+at)

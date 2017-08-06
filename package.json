@@ -16,7 +16,6 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "rimraf": "^2.6.1",
     "util.pkgwrap": "0.0.67",
     "util.toolbox": "^0.0.39"
   },
@@ -31,10 +30,11 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
-    "all": "yarn install && yarn run clean && yarn run lint && yarn run build && yarn test && yarn run report",
+    "all": "yarn install && yarn run clean && yarn run lint && yarn run build && yarn run docs && yarn test && yarn run report",
     "build": "pkgwrap --build",
     "clean": "pkgwrap --clean",
     "coverage": "pkgwrap --coverage",
+    "docs": "pkgwrap --docs",
     "lint": "pkgwrap --lint",
     "postinstall": "pkgwrap --postinstall",
     "report": "pkgwrap --reporting",
