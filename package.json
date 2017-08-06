@@ -16,12 +16,11 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
+    "rimraf": "^2.6.1",
     "util.pkgwrap": "0.0.67",
     "util.toolbox": "^0.0.39"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.71",
     "@types/node": "^8.0.19",
     "ava": "^0.21.0",
     "coveralls": "^2.13.1",
