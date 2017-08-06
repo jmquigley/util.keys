@@ -53,12 +53,12 @@ export class Keys {
 	}
 
 	/**
-	 * Retrieve a key by the given index number.  The same index will always
+	 * Retrieve a key at the given index number.  The same index will always
 	 * return the same generated key.  The index can be any number > 0.
 	 * @param idx {number} the unique position id associated with a key (index)
 	 * @returns {string} a UUID associated with that position
 	 */
-	public key(idx: number) {
+	public at(idx: number) {
 		if (!(idx in this._keys)) {
 			this._keys[idx] = this._getCacheValue();
 		}
