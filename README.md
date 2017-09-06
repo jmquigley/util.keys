@@ -67,3 +67,8 @@ The index values given to `.at(idx)` do not need to be sequential.  Any number c
 
 - [Key()](docs/index.md#Keys)
 - [.at()](docs/index.md#Keys+at)
+
+The `Key` class contructor takes an options object for configuration parameters.  It has the following options:
+
+- `cacheSize {number} (25)` - the number of items in the array cache.  The class will preload 25 items by default.
+- `testing {boolean} (false)` - when this option is set the id values returned are an echo of the requested index.  This is used for testing (as snapshot testing will not work with this class).

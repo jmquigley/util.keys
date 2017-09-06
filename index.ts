@@ -6,6 +6,11 @@ export interface Key {
 	[key: number]: string;
 }
 
+export interface KeyOptions {
+	testing?: boolean;
+	cacheSize?: number;
+}
+
 /**
  * Use this class to create a new instance of the key generator.  The cache
  * size determines how many UUID keys will be kept in a cache when this
@@ -18,11 +23,24 @@ export interface Key {
  * ```javascript
  * import {Keys} from 'util.keys';
  *
- * const _keys = new Keys(5);
+ * const _keys = new Keys(false, 5);
  * let _key
  * _key = _keys.at(0);   // retrieve the key at index 0
  * _key = _keys.at(1);   // retrieve the key at index 1
  * _key = _keys.at(-99); // retrieve the key at index 0
+ * ```
+ *
+ * A key object can be created with testing keys.  the instance is created with
+ * by setting the testing flag constructor parameter:
+ *
+ * ```javascript
+ * import {Keys} from 'util.keys';
+ *
+ * const _keys = new Keys(true);  // true enables testing
+ * let _key
+ * _key = _keys.at(0);   // echos the index back "0"
+ * _key = _keys.at(1);   // echos the index back "1"
+ * _key = _keys.at(-99); // echos the default index of "0"
  * ```
  */
 export class Keys {
@@ -30,10 +48,13 @@ export class Keys {
 	private _keys: Key = {};
 	private _cache: string[] = [];
 	private _cachePosition: number = 0;
-	private _cacheSize: number = 0;
+	private _opts: KeyOptions = {
+		cacheSize: 25,
+		testing: false
+	};
 
-	constructor(cacheSize: number = 25) {
-		this._cacheSize = cacheSize;
+	constructor(opts: KeyOptions = {}) {
+		Object.assign(this._opts, opts);
 		this._updateCache();
 	}
 
@@ -42,7 +63,11 @@ export class Keys {
 	}
 
 	get cacheSize(): number {
-		return this._cacheSize;
+		return this._opts['cacheSize'];
+	}
+
+	get testing(): boolean {
+		return this._opts['testing'];
 	}
 
 	/**
@@ -79,10 +104,14 @@ export class Keys {
 	 * @param idx {number} the unique position id associated with a key (index)
 	 * @returns {string} a UUID associated with that position
 	 */
-	public at(idx: number) {
+	public at(idx: number): string {
 
 		if (idx < 0) {
 			idx = 0;
+		}
+
+		if (this._opts['testing']) {
+			return String(idx);
 		}
 
 		if (!(idx in this._keys)) {

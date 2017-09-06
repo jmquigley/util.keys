@@ -12,11 +12,24 @@ from.  The overall "key list" is maintained.
 ```javascript
 import {Keys} from 'util.keys';
 
-const _keys = new Keys(5);
+const _keys = new Keys(false, 5);
 let _key
 _key = _keys.at(0);   // retrieve the key at index 0
 _key = _keys.at(1);   // retrieve the key at index 1
 _key = _keys.at(-99); // retrieve the key at index 0
+```
+
+A key object can be created with testing keys.  the instance is created with
+by setting the testing flag constructor parameter:
+
+```javascript
+import {Keys} from 'util.keys';
+
+const _keys = new Keys(true);  // true enables testing
+let _key
+_key = _keys.at(0);   // echos the index back "0"
+_key = _keys.at(1);   // echos the index back "1"
+_key = _keys.at(-99); // echos the default index of "0"
 ```
 
 **Kind**: global class  
