@@ -16,11 +16,11 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "util.pkgwrap": "0.0.67",
-    "util.toolbox": "^0.0.42"
+    "util.pkgwrap": "0.0.68",
+    "util.toolbox": "^0.0.47"
   },
   "devDependencies": {
-    "@types/node": "^8.0.26",
+    "@types/node": "^8.0.28",
     "ava": "^0.22.0",
     "coveralls": "^2.13.1",
     "nyc": "^11.2.1",
