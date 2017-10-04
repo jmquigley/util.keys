@@ -33,6 +33,11 @@ _key = _keys.at(-99); // echos the default index of "0"
 ```
 
 **Kind**: global class  
+
+* [Keys](#Keys)
+    * [.at(idx)](#Keys+at) ⇒ <code>string</code>
+    * [.next()](#Keys+next) ⇒ <code>string</code>
+
 <a name="Keys+at"></a>
 
 ### keys.at(idx) ⇒ <code>string</code>
@@ -47,3 +52,12 @@ less then 0 are set to 0.
 | --- | --- | --- |
 | idx | <code>number</code> | the unique position id associated with a key (index) |
 
+<a name="Keys+next"></a>
+
+### keys.next() ⇒ <code>string</code>
+A convenience method to get the key at the next possible index value.
+If no key has been retrieved before the first index is 0.  The lastID
+is always set to the largest size index ever encountered.
+
+**Kind**: instance method of [<code>Keys</code>](#Keys)  
+**Returns**: <code>string</code> - a UUID associated with that position  

@@ -62,11 +62,13 @@ When `Foo` is rendered the key values associated with each instance in `controls
 
 The index values given to `.at(idx)` do not need to be sequential.  Any number can be used to retrieve a key.  On retrieval the idx/uuid are paired together for the life of the instance.
 
+A convenience method is also provided to retrieve the *next()* id string available.  It assumes a start of 0 if no previous index was given.
 
 ## API
 
 - [Key()](docs/index.md#Keys)
 - [.at()](docs/index.md#Keys+at)
+- [.next()](docs/index.md#Keys+next)
 
 The `Key` class contructor takes an options object for configuration parameters.  It has the following options:
 

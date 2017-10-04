@@ -48,6 +48,7 @@ export class Keys {
 	private _keys: Key = {};
 	private _cache: string[] = [];
 	private _cachePosition: number = 0;
+	private _lastID: number = -1;
 	private _opts: KeyOptions = {
 		cacheSize: 25,
 		testing: false
@@ -58,16 +59,24 @@ export class Keys {
 		this._updateCache();
 	}
 
-	get values(): string[] {
-		return Object.values(this._keys);
-	}
-
 	get cacheSize(): number {
 		return this._opts['cacheSize'];
 	}
 
+	get lastID(): number {
+		return this._lastID;
+	}
+
 	get testing(): boolean {
 		return this._opts['testing'];
+	}
+
+	get values(): string[] {
+		return Object.values(this._keys);
+	}
+
+	get size(): number {
+		return this.values.length;
 	}
 
 	/**
@@ -110,6 +119,10 @@ export class Keys {
 			idx = 0;
 		}
 
+		if (idx >= this._lastID) {
+			this._lastID = idx;
+		}
+
 		if (this._opts['testing']) {
 			return String(idx);
 		}
@@ -119,5 +132,15 @@ export class Keys {
 		}
 
 		return this._keys[idx];
+	}
+
+	/**
+	 * A convenience method to get the key at the next possible index value.
+	 * If no key has been retrieved before the first index is 0.  The lastID
+	 * is always set to the largest size index ever encountered.
+	 * @returns {string} a UUID associated with that position
+	 */
+	public next(): string {
+		return this.at(++this._lastID);
 	}
 }
