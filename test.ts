@@ -3,7 +3,7 @@
 const debug = require('debug')('keys.test');
 
 import test from 'ava';
-import {regexUUID} from 'util.toolbox';
+import {regexUUID} from 'util.constants';
 import {Keys} from './index';
 
 test('Test creation of a Keys object', t => {
