@@ -3,6 +3,8 @@
   "version": "0.0.9",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Maintains a set of unique keys generated for a react component",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "private": false,
   "license": "MIT",
   "repository": {
@@ -13,32 +15,39 @@
     "url": "https://github.com/jmquigley/util.keys/issues"
   },
   "engines": {
-    "node": ">=7.5"
+    "node": ">=7.x"
   },
   "dependencies": {
-    "util.constants": "^0.0.3",
-    "util.pkgwrap": "0.0.73",
-    "util.toolbox": "^0.0.53"
+    "util.constants": "^0.0.6",
+    "util.toolbox": "^0.0.55"
   },
   "devDependencies": {
-    "@types/node": "^8.0.53",
-    "ava": "^0.23.0",
+    "@types/node": "^8.0.54",
+    "ava": "^0.24.0",
     "coveralls": "^3.0.0",
     "debug": "^3.1.0",
     "nyc": "^11.3.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.2"
   },
-  "main": "./index.js",
-  "types": "./index.d.ts",
+	"pkgwrap": {
+    "cleanup": [
+      "docs/",
+      "index.d.ts",
+      "index.js",
+      "test.d.ts",
+      "test.js"
+    ]
+	},
   "scripts": {
-    "all": "yarn install && yarn run clean && yarn run lint && yarn run build && yarn run docs && yarn test && yarn run report",
-    "build": "pkgwrap --build",
+    "all": "yarn install && yarn run build && yarn run docs && yarn test && yarn run report",
+    "build": "yarn clean && yarn run lint && pkgwrap --build",
     "clean": "pkgwrap --clean",
     "coverage": "pkgwrap --coverage",
     "docs": "pkgwrap --docs",
     "lint": "pkgwrap --lint",
-    "postinstall": "pkgwrap --postinstall",
+    "preinstall": "yarn global add util.pkgwrap",
+    "prepublishOnly": "yarn run all",
     "report": "pkgwrap --reporting",
     "test": "pkgwrap --testing --ava"
   }
