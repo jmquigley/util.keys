@@ -1,6 +1,6 @@
 {
   "name": "util.keys",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Maintains a set of unique keys generated for a react component",
   "main": "./index.js",
@@ -30,7 +30,7 @@
     "tslint": "^5.8.0",
     "typescript": "^2.6.2"
   },
-	"pkgwrap": {
+  "pkgwrap": {
     "cleanup": [
       "docs/",
       "index.d.ts",
@@ -38,7 +38,7 @@
       "test.d.ts",
       "test.js"
     ]
-	},
+  },
   "scripts": {
     "all": "yarn install && yarn run build && yarn run docs && yarn test && yarn run report",
     "build": "yarn clean && yarn run lint && pkgwrap --build",
