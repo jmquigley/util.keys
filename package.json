@@ -18,8 +18,8 @@
     "node": ">=7.x"
   },
   "dependencies": {
-    "util.constants": "^0.0.6",
-    "util.toolbox": "^0.0.55"
+    "util.constants": "^0.0.7",
+    "util.toolbox": "^0.0.56"
   },
   "devDependencies": {
     "@types/node": "^8.0.54",
@@ -28,7 +28,8 @@
     "debug": "^3.1.0",
     "nyc": "^11.3.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "util.pkgwrap": "^0.0.88"
   },
   "pkgwrap": {
     "cleanup": [
@@ -46,7 +47,6 @@
     "coverage": "pkgwrap --coverage",
     "docs": "pkgwrap --docs",
     "lint": "pkgwrap --lint",
-    "preinstall": "yarn global add util.pkgwrap",
     "prepublishOnly": "yarn run all",
     "report": "pkgwrap --reporting",
     "test": "pkgwrap --testing --ava"
