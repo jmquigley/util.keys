@@ -1,6 +1,6 @@
 {
   "name": "util.keys",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Maintains a set of unique keys generated for a react component",
   "main": "./index.js",
