@@ -7,8 +7,9 @@ export interface Key {
 }
 
 export interface KeyOptions {
-	testing?: boolean;
 	cacheSize?: number;
+	testing?: boolean;
+	testingPrefix?: string;
 }
 
 /**
@@ -23,24 +24,25 @@ export interface KeyOptions {
  * ```javascript
  * import {Keys} from 'util.keys';
  *
- * const _keys = new Keys(false, 5);
- * let _key
+ * const _keys = new Keys({testing: false, cacheSize: 5});
+ * let _key;
+ *
  * _key = _keys.at(0);   // retrieve the key at index 0
  * _key = _keys.at(1);   // retrieve the key at index 1
  * _key = _keys.at(-99); // retrieve the key at index 0
  * ```
  *
  * A key object can be created with testing keys.  the instance is created with
- * by setting the testing flag constructor parameter:
+ * by setting the testing flag option:
  *
  * ```javascript
  * import {Keys} from 'util.keys';
  *
- * const _keys = new Keys(true);  // true enables testing
+ * const _keys = new Keys({testing: true, testingPrefix: 't'});  // true enables testing
  * let _key
- * _key = _keys.at(0);   // echos the index back "0"
- * _key = _keys.at(1);   // echos the index back "1"
- * _key = _keys.at(-99); // echos the default index of "0"
+ * _key = _keys.at(0);   // echos the index back "t0"
+ * _key = _keys.at(1);   // echos the index back "t1"
+ * _key = _keys.at(-99); // echos the default index of "t0"
  * ```
  */
 export class Keys {
@@ -51,7 +53,8 @@ export class Keys {
 	private _lastID: number = -1;
 	private _opts: KeyOptions = {
 		cacheSize: 25,
-		testing: false
+		testing: false,
+		testingPrefix: ''
 	};
 
 	constructor(opts: KeyOptions = {}) {
@@ -69,6 +72,10 @@ export class Keys {
 
 	get testing(): boolean {
 		return this._opts['testing'];
+	}
+
+	get testingPrefix(): string {
+		return this._opts['testingPrefix'];
 	}
 
 	get values(): string[] {
@@ -124,7 +131,7 @@ export class Keys {
 		}
 
 		if (this._opts['testing']) {
-			return String(idx);
+			return `${this._opts['testingPrefix']}${idx}`;
 		}
 
 		if (!(idx in this._keys)) {

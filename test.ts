@@ -62,6 +62,8 @@ test('Test with small cache size, but large number of keys', t => {
 	t.truthy(keys);
 	t.is(keys.size, 0);
 	t.is(keys.cacheSize, size);
+	t.false(keys.testing);
+	t.is(keys.testingPrefix, '');
 
 	for (let i = 0; i < maxKeys; i++) {
 		t.regex(keys.at(i), regexUUID);
@@ -75,6 +77,8 @@ test('Test with a key that is less than 0', t => {
 
 	t.truthy(keys);
 	t.is(keys.size, 0);
+	t.false(keys.testing);
+	t.is(keys.testingPrefix, '');
 
 	const key = keys.at(0);
 	t.regex(key, regexUUID);
@@ -89,12 +93,27 @@ test('Create keys with the testing flag', t => {
 
 	t.truthy(keys);
 	t.true(keys.testing);
+	t.is(keys.testingPrefix, '');
 
 	t.is(keys.at(0), '0');
 	t.is(keys.at(1), '1');
 	t.is(keys.at(255), '255');
 	t.is(keys.at(-1), '0');
 	t.is(keys.at(-99), '0');
+});
+
+test('Create keys with testing flag and testing prefix', t => {
+	const keys = new Keys({testing: true, testingPrefix: 't'});
+
+	t.truthy(keys);
+	t.true(keys.testing);
+	t.is(keys.testingPrefix, 't');
+
+	t.is(keys.at(0), 't0');
+	t.is(keys.at(1), 't1');
+	t.is(keys.at(255), 't255');
+	t.is(keys.at(-1), 't0');
+	t.is(keys.at(-99), 't0');
 });
 
 test('Retrieve a value using next()', t => {

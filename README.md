@@ -31,6 +31,8 @@ The use case for this module is to generate unique keys used by a React control 
 
 ## Usage
 
+#### Basic
+
 ```javascript
 import * as React from 'react';
 import {Keys} from 'util.keys';
@@ -64,6 +66,40 @@ The index values given to `.at(idx)` do not need to be sequential.  Any number c
 
 A convenience method is also provided to retrieve the *next()* id string available.  It assumes a start of 0 if no previous index was given.
 
+#### Testing
+
+The same basic method is used during testing.  However, when using snapshot testing it is not desirable for the key value to randomly change with each test run.  The control can be configured to produce a stable, predicatble key when the testing flag is set.
+
+```javascript
+import * as React from 'react';
+import {Keys} from 'util.keys';
+
+export class Foo extends React.Component<P, S> {
+	private _keys = new Keys({testing: true, testingPrefix: 't'});
+
+	constructor(props: any) {
+		super(props);
+	}
+
+	render() {
+		let controls = [];
+		for (let i=0; i<20; i++) {
+			controls.push(
+				<div key={this._keys.at(i)}>foo</div>
+			);
+		}
+		return (
+			<div>
+			{controls}
+			</div>
+		);
+	}
+}
+```
+
+Each of the component key values will be produced in numeric order starting from 0.  A string can also be prepended to each key.  In this example each key has the string "t" prepended, so the values are "t0, t1, t2...".
+
+
 ## API
 
 - [Key()](docs/index.md#Keys)
@@ -74,3 +110,4 @@ The `Key` class contructor takes an options object for configuration parameters.
 
 - `cacheSize {number} (25)` - the number of items in the array cache.  The class will preload 25 items by default.
 - `testing {boolean} (false)` - when this option is set the id values returned are an echo of the requested index.  This is used for testing (as snapshot testing will not work with this class).
+- `testingPrefix: {string} ('')` - when the testing option is set this prefix will be prepended to the index string used for testing.  By default this is an empty string.
