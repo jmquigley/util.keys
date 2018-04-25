@@ -18,8 +18,8 @@
     "node": ">=7.x"
   },
   "dependencies": {
-    "util.constants": "^0.0.9",
-    "util.toolbox": "^0.0.58"
+    "util.constants": "^0.0.10",
+    "util.toolbox": "^0.0.59"
   },
   "devDependencies": {
     "@types/node": "^9.6.6",
@@ -28,7 +28,7 @@
     "debug": "^3.1.0",
     "nyc": "^11.7.1",
     "tslint": "^5.9.1",
-    "typescript": "^2.8.1",
+    "typescript": "^2.8.3",
     "util.pkgwrap": "^0.0.91"
   },
   "pkgwrap": {

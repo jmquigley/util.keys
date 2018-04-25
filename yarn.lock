@@ -4122,9 +4122,9 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
-typescript@^2.8.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.1.tgz#6160e4f8f195d5ba81d4876f9c0cc1fbc0820624"
+typescript@^2.8.3:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.3.tgz#5d817f9b6f31bb871835f4edf0089f21abe6c170"
 
 typical@^2.4.2, typical@^2.6.0, typical@^2.6.1:
   version "2.6.1"
@@ -4237,9 +4237,9 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
-util.constants@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.9.tgz#3b06dbaa0503f7cf09260e866d264a6478aed763"
+util.constants@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.10.tgz#70b54f324bf761511a4b9010120206fd693186ac"
 
 util.pkgwrap@^0.0.91:
   version "0.0.91"
@@ -4260,17 +4260,17 @@ util.pkgwrap@^0.0.91:
     workerpool "^2.3.0"
     yargs "^11.0.0"
 
-util.rstrip@0.0.34:
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.34.tgz#ecd9e049b8fa2270992390a337c1f79e7fd6736d"
+util.rstrip@0.0.35:
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.35.tgz#ea0912545f58241a5b8f252585cd8552dd965072"
 
-util.toolbox@^0.0.58:
-  version "0.0.58"
-  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.58.tgz#1c9fedb0f49c7771733c6adfe06ef1c68eefbc92"
+util.toolbox@^0.0.59:
+  version "0.0.59"
+  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.59.tgz#04a675b39b1568caa55dcccadba1cbda00058fbf"
   dependencies:
     fs-extra "^5.0.0"
-    util.constants "^0.0.9"
-    util.rstrip "0.0.34"
+    util.constants "^0.0.10"
+    util.rstrip "0.0.35"
     uuid "^3.2.1"
 
 uuid@^3.0.0, uuid@^3.1.0:
