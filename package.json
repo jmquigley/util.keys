@@ -18,37 +18,58 @@
     "node": ">=7.x"
   },
   "dependencies": {
-    "util.constants": "^0.0.10",
-    "util.toolbox": "^0.0.59"
+    "util.constants": "^0.0.16",
+    "util.toolbox": "^0.0.68"
   },
   "devDependencies": {
-    "@types/node": "^9.6.6",
-    "ava": "^0.25.0",
-    "coveralls": "^3.0.0",
-    "debug": "^3.1.0",
-    "nyc": "^11.7.1",
-    "tslint": "^5.9.1",
-    "typescript": "^2.8.3",
-    "util.pkgwrap": "^0.0.91"
+    "@types/node": "^10.12.18",
+    "coveralls": "^3.0.2",
+    "debug": "^4.1.1",
+    "jest": "^23.6.0",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
+    "typescript-babel-jest": "^1.0.5",
+    "util.pkgwrap": "^0.0.94"
   },
   "pkgwrap": {
     "cleanup": [
       "docs/",
       "index.d.ts",
-      "index.js",
-      "test.d.ts",
-      "test.js"
+      "index.js"
     ]
   },
+  "jest": {
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json"
+    ],
+    "notify": false,
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "__tests__/helpers"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "transform": {
+      "^.+\\.ts?$": "typescript-babel-jest"
+    },
+    "verbose": false
+  },
   "scripts": {
-    "all": "yarn install && yarn run build && yarn run docs && yarn test && yarn run report",
+    "all": "yarn install && yarn run build && yarn run docs && yarn test",
     "build": "yarn clean && yarn run lint && pkgwrap --build",
     "clean": "pkgwrap --clean",
-    "coverage": "pkgwrap --coverage",
+    "coverage": "pkgwrap --coverage --jest",
     "docs": "pkgwrap --docs",
     "lint": "pkgwrap --lint",
     "prepublishOnly": "yarn run all",
     "report": "pkgwrap --reporting",
-    "test": "pkgwrap --testing --ava"
+    "test": "pkgwrap --testing --jest"
   }
 }
