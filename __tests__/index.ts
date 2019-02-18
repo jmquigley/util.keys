@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-const debug = require('debug')('keys.test');
+const debug = require("debug")("keys.test");
 
-import {regexUUID} from 'util.constants';
-import {Keys} from '../index';
+import {regexUUID} from "util.constants";
+import {Keys} from "../index";
 
-test('Test creation of a Keys object', () => {
+test("Test creation of a Keys object", () => {
 	const keys = new Keys();
 
 	expect(keys).toBeDefined();
@@ -13,7 +13,7 @@ test('Test creation of a Keys object', () => {
 	expect(keys.cacheSize).toBe(25);
 });
 
-test('Test retrieval of keys from the object', () => {
+test("Test retrieval of keys from the object", () => {
 	const size = 5;
 	const keys = new Keys({cacheSize: size});
 
@@ -35,7 +35,7 @@ test('Test retrieval of keys from the object', () => {
 	debug(keys.values);
 });
 
-test('Test retrieving the same value over and over', () => {
+test("Test retrieving the same value over and over", () => {
 	const keys = new Keys({cacheSize: 5});
 
 	expect(keys).toBeDefined();
@@ -53,7 +53,7 @@ test('Test retrieving the same value over and over', () => {
 	}
 });
 
-test('Test with small cache size, but large number of keys', () => {
+test("Test with small cache size, but large number of keys", () => {
 	const maxKeys = 100;
 	const size = 5;
 	const keys = new Keys({cacheSize: size});
@@ -62,7 +62,7 @@ test('Test with small cache size, but large number of keys', () => {
 	expect(keys.size).toBe(0);
 	expect(keys.cacheSize).toBe(size);
 	expect(keys.testing).toBe(false);
-	expect(keys.testingPrefix).toBe('');
+	expect(keys.testingPrefix).toBe("");
 
 	for (let i = 0; i < maxKeys; i++) {
 		expect(keys.at(i)).toMatch(regexUUID);
@@ -71,13 +71,13 @@ test('Test with small cache size, but large number of keys', () => {
 	expect(keys.size).toBe(maxKeys);
 });
 
-test('Test with a key thaexpect less than 0', () => {
+test("Test with a key thaexpect less than 0", () => {
 	const keys = new Keys();
 
 	expect(keys).toBeDefined();
 	expect(keys.size).toBe(0);
 	expect(keys.testing).toBe(false);
-	expect(keys.testingPrefix).toBe('');
+	expect(keys.testingPrefix).toBe("");
 
 	const key = keys.at(0);
 	expect(key).toMatch(regexUUID);
@@ -87,35 +87,35 @@ test('Test with a key thaexpect less than 0', () => {
 	expect(key).toBe(bad);
 });
 
-test('Create keys with the testing flag', () => {
+test("Create keys with the testing flag", () => {
 	const keys = new Keys({testing: true});
 
 	expect(keys).toBeDefined();
 	expect(keys.testing).toBe(true);
-	expect(keys.testingPrefix).toBe('');
+	expect(keys.testingPrefix).toBe("");
 
-	expect(keys.at(0)).toBe('0');
-	expect(keys.at(1)).toBe('1');
-	expect(keys.at(255)).toBe('255');
-	expect(keys.at(-1)).toBe('0');
-	expect(keys.at(-99)).toBe('0');
+	expect(keys.at(0)).toBe("0");
+	expect(keys.at(1)).toBe("1");
+	expect(keys.at(255)).toBe("255");
+	expect(keys.at(-1)).toBe("0");
+	expect(keys.at(-99)).toBe("0");
 });
 
-test('Create keys with testing flag and testing prefix', () => {
-	const keys = new Keys({testing: true, testingPrefix: 't'});
+test("Create keys with testing flag and testing prefix", () => {
+	const keys = new Keys({testing: true, testingPrefix: "t"});
 
 	expect(keys).toBeDefined();
 	expect(keys.testing).toBe(true);
-	expect(keys.testingPrefix).toBe('t');
+	expect(keys.testingPrefix).toBe("t");
 
-	expect(keys.at(0)).toBe('t0');
-	expect(keys.at(1)).toBe('t1');
-	expect(keys.at(255)).toBe('t255');
-	expect(keys.at(-1)).toBe('t0');
-	expect(keys.at(-99)).toBe('t0');
+	expect(keys.at(0)).toBe("t0");
+	expect(keys.at(1)).toBe("t1");
+	expect(keys.at(255)).toBe("t255");
+	expect(keys.at(-1)).toBe("t0");
+	expect(keys.at(-99)).toBe("t0");
 });
 
-test('Retrieve a value using next()', () => {
+test("Retrieve a value using next()", () => {
 	const keys = new Keys();
 
 	expect(keys).toBeDefined();
@@ -134,7 +134,7 @@ test('Retrieve a value using next()', () => {
 	expect(keys.at(1)).toBe(key1);
 });
 
-test('Retrieve a value using next() after at()', () => {
+test("Retrieve a value using next() after at()", () => {
 	const keys = new Keys();
 
 	expect(keys).toBeDefined();

@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import {getUUID} from 'util.toolbox';
+import {getUUID} from "util.toolbox";
 
 export interface Key {
 	[key: number]: string;
@@ -46,7 +46,6 @@ export interface KeyOptions {
  * ```
  */
 export class Keys {
-
 	private _keys: Key = {};
 	private _cache: string[] = [];
 	private _cachePosition: number = 0;
@@ -54,7 +53,7 @@ export class Keys {
 	private _opts: KeyOptions = {
 		cacheSize: 25,
 		testing: false,
-		testingPrefix: ''
+		testingPrefix: ""
 	};
 
 	constructor(opts: KeyOptions = {}) {
@@ -63,7 +62,7 @@ export class Keys {
 	}
 
 	get cacheSize(): number {
-		return this._opts['cacheSize'];
+		return this._opts["cacheSize"];
 	}
 
 	get lastID(): number {
@@ -71,11 +70,11 @@ export class Keys {
 	}
 
 	get testing(): boolean {
-		return this._opts['testing'];
+		return this._opts["testing"];
 	}
 
 	get testingPrefix(): string {
-		return this._opts['testingPrefix'];
+		return this._opts["testingPrefix"];
 	}
 
 	get values(): string[] {
@@ -121,7 +120,6 @@ export class Keys {
 	 * @returns {string} a UUID associated with that position
 	 */
 	public at(idx: number): string {
-
 		if (idx < 0) {
 			idx = 0;
 		}
@@ -130,8 +128,8 @@ export class Keys {
 			this._lastID = idx;
 		}
 
-		if (this._opts['testing']) {
-			return `${this._opts['testingPrefix']}${idx}`;
+		if (this._opts["testing"]) {
+			return `${this._opts["testingPrefix"]}${idx}`;
 		}
 
 		if (!(idx in this._keys)) {

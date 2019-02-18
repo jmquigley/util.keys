@@ -1,75 +1,59 @@
 {
-  "name": "util.keys",
-  "version": "0.0.15",
-  "author": "jmquigley <jmquigley@outlook.com>",
-  "description": "Maintains a set of unique keys generated for a react component",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "private": false,
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jmquigley/util.keys"
-  },
-  "bugs": {
-    "url": "https://github.com/jmquigley/util.keys/issues"
-  },
-  "engines": {
-    "node": ">=7.x"
-  },
-  "dependencies": {
-    "util.constants": "^0.0.16",
-    "util.toolbox": "^0.0.68"
-  },
-  "devDependencies": {
-    "@types/node": "^10.12.18",
-    "coveralls": "^3.0.2",
-    "debug": "^4.1.1",
-    "jest": "^23.6.0",
-    "tslint": "^5.12.0",
-    "typescript": "^3.2.2",
-    "typescript-babel-jest": "^1.0.5",
-    "util.pkgwrap": "^0.0.94"
-  },
-  "pkgwrap": {
-    "cleanup": [
-      "docs/",
-      "index.d.ts",
-      "index.js"
-    ]
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/node_modules/"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "ts",
-      "tsx",
-      "json"
-    ],
-    "notify": false,
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "__tests__/helpers"
-    ],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-    "transform": {
-      "^.+\\.ts?$": "typescript-babel-jest"
-    },
-    "verbose": false
-  },
-  "scripts": {
-    "all": "yarn install && yarn run build && yarn run docs && yarn test",
-    "build": "yarn clean && yarn run lint && pkgwrap --build",
-    "clean": "pkgwrap --clean",
-    "coverage": "pkgwrap --coverage --jest",
-    "docs": "pkgwrap --docs",
-    "lint": "pkgwrap --lint",
-    "prepublishOnly": "yarn run all",
-    "report": "pkgwrap --reporting",
-    "test": "pkgwrap --testing --jest"
-  }
+	"name": "util.keys",
+	"version": "0.0.15",
+	"author": "jmquigley <jmquigley@outlook.com>",
+	"description": "Maintains a set of unique keys generated for a react component",
+	"private": false,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jmquigley/util.keys"
+	},
+	"bugs": {
+		"url": "https://github.com/jmquigley/util.keys/issues"
+	},
+	"engines": {
+		"node": ">=7.x"
+	},
+	"main": "./index.min.js",
+	"types": "./index.d.ts",
+	"dependencies": {
+		"util.constants": "^0.0.18",
+		"util.toolbox": "^0.0.69"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.3.3",
+		"@babel/preset-env": "^7.3.1",
+		"@babel/preset-typescript": "^7.3.3",
+		"@babel/runtime": "^7.3.1",
+		"@types/jest": "^24.0.6",
+		"@types/node": "^11.9.4",
+		"babel-minify": "^0.5.0",
+		"coveralls": "^3.0.2",
+		"debug": "^4.1.1",
+		"jest": "^24.1.0",
+		"prettier": "^1.16.4",
+		"tslint": "^5.12.1",
+		"tslint-config-prettier": "^1.18.0",
+		"typescript": "^3.3.3",
+		"util.pkgwrap": "^0.0.98"
+	},
+	"pkgwrap": {
+		"cleanup": [
+			"docs/"
+		]
+	},
+	"scripts": {
+		"all": "yarn install && yarn prettier && yarn build && yarn test && yarn docs && yarn minify",
+		"build": "yarn clean && yarn lint && pkgwrap --build",
+		"clean": "pkgwrap --clean",
+		"clean:dist": "yarn clean && rimraf node_modules/ yarn.lock",
+		"coverage": "pkgwrap --coverage --jest",
+		"docs": "pkgwrap --docs",
+		"lint": "pkgwrap --lint",
+		"minify": "minify ./index.js --out-file ./index.min.js",
+		"prepublishOnly": "yarn run all",
+		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
+		"test": "jest"
+	}
 }
