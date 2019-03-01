@@ -1,6 +1,4 @@
 {
-		"presets": [
-				"@babel/preset-env",
-				"@babel/preset-typescript"
-		]
+	"presets": ["@babel/preset-env", "@babel/preset-typescript", "minify"],
+	"plugins": ["@babel/plugin-transform-modules-umd"]
 }

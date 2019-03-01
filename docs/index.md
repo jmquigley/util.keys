@@ -48,10 +48,9 @@ less then 0 are set to 0.
 
 **Kind**: instance method of [<code>Keys</code>](#Keys)  
 **Returns**: <code>string</code> - a UUID associated with that position  
+**Params**
 
-| Param | Type | Description |
-| --- | --- | --- |
-| idx | <code>number</code> | the unique position id associated with a key (index) |
+- idx <code>number</code> - the unique position id associated with a key (index)
 
 <a name="Keys+next"></a>
 
