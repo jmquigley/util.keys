@@ -664,10 +664,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@^11.9.6":
-  version "11.9.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.6.tgz#c632bbcc780a1349673a6e2e9b9dfa8c369d3c74"
-  integrity sha512-4hS2K4gwo9/aXIcoYxCtHpdgd8XUeDmo1siRCAH3RziXB65JlPqUFMtfy9VPj+og7dp3w1TFjGwYga4e0m9GwA==
+"@types/node@^11.10.0":
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.0.tgz#08eeb736ae678ccf9ca0922063f3a08795894ede"
+  integrity sha512-6Mb9+PPq9UzRpQrlPzZAbhEvodWDTnsIakddUAtSDpKYF6eu5zAdW31n8x7UZStvqGnDC7dCJnvU188ylv/Ytw==
 
 abab@^2.0.0:
   version "2.0.0"
@@ -5313,12 +5313,11 @@ util.rstrip@0.0.46:
   resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.46.tgz#08e3c49c2eb520cacbd45340dc3297bdf0c311c5"
   integrity sha512-Mwrfe27LQ1gShhbFotQfRsi13ycxBGPmpgbNjd8zfvcCdjLs5N012mHG9Y+stLz6eBgSKsPEgSlSHvuwryVjkw==
 
-util.toolbox@^0.0.70:
-  version "0.0.70"
-  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.70.tgz#8daafc2474f6441da6d2629db3a4ef0b7855600a"
-  integrity sha512-gPVU5S7lbc+zEI2uicczhZALgcwSQSkxSUuYljk0JoI0HiPwVZs4P3NKlIdL81VlmlYoPXfdzYlBcePj08Mp1w==
+util.toolbox@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.72.tgz#3c8ee61e933e7ab1d727e8adc9cab53f475beead"
+  integrity sha512-4mYCLTV6NPIiGWhq/IRxe84V+0QKDhPbREim1XnKQ4l3EbC3ljD/MRqhX/7jCbOsG6d5OfJ+gyyUzy2eISAu9g==
   dependencies:
-    fs-extra "^7.0.1"
     util.constants "^0.0.21"
     util.rstrip "0.0.46"
     uuid "^3.3.2"

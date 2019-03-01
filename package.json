@@ -24,7 +24,7 @@
 	],
 	"dependencies": {
 		"util.constants": "^0.0.21",
-		"util.toolbox": "^0.0.70"
+		"util.toolbox": "^0.0.72"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.2.3",
@@ -34,7 +34,7 @@
 		"@babel/preset-typescript": "^7.3.3",
 		"@babel/runtime": "^7.3.4",
 		"@types/jest": "^24.0.9",
-		"@types/node": "^11.9.6",
+		"@types/node": "^11.10.0",
 		"babel-minify": "^0.5.0",
 		"babel-preset-minify": "^0.5.0",
 		"coveralls": "^3.0.3",
