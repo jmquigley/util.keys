@@ -1,4 +1,5 @@
 module.exports = {
+	bail: true,
 	collectCoverage: true,
 	coveragePathIgnorePatterns: [
 		"<rootDir>/__tests__/helpers",
