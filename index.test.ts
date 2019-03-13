@@ -3,7 +3,7 @@
 const debug = require("debug")("keys.test");
 
 import {regexUUID} from "util.constants";
-import {Keys} from "../index";
+import {Keys} from "./index";
 
 test("Test creation of a Keys object", () => {
 	const keys = new Keys();

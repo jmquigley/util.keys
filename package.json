@@ -1,6 +1,6 @@
 {
 	"name": "util.keys",
-	"version": "0.0.19",
+	"version": "0.0.20",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Maintains a set of unique keys generated for a react component",
 	"private": false,
@@ -23,8 +23,8 @@
 		"index.d.ts"
 	],
 	"dependencies": {
-		"util.constants": "^0.0.22",
-		"util.toolbox": "^0.0.73"
+		"util.constants": "^0.0.25",
+		"util.toolbox": "^0.0.74"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.2.3",
@@ -33,18 +33,18 @@
 		"@babel/preset-env": "^7.3.4",
 		"@babel/preset-typescript": "^7.3.3",
 		"@babel/runtime": "^7.3.4",
-		"@types/jest": "^24.0.9",
-		"@types/node": "^11.10.5",
+		"@types/jest": "^24.0.11",
+		"@types/node": "^11.11.3",
 		"babel-minify": "^0.5.0",
 		"babel-preset-minify": "^0.5.0",
 		"coveralls": "^3.0.3",
 		"debug": "^4.1.1",
-		"jest": "^24.3.1",
+		"jest": "^24.5.0",
 		"prettier": "^1.16.4",
-		"tslint": "^5.13.1",
+		"tslint": "^5.14.0",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "^3.3.3333",
-		"util.pkgwrap": "^0.0.104"
+		"util.pkgwrap": "^0.0.105"
 	},
 	"pkgwrap": {
 		"cleanup": [
@@ -52,7 +52,7 @@
 		]
 	},
 	"scripts": {
-		"all": "yarn install && yarn build && yarn docs && yarn test",
+		"all": "yarn install && yarn build && yarn docs && yarn test && yarn manifest",
 		"build": "yarn clean && yarn lint && yarn prettier && yarn build:es && yarn build:umd",
 		"build:es": "tsc -p . && minify index.js --out-file index.es.min.js",
 		"build:umd": "babel index.js --out-file index.umd.min.js",
@@ -61,7 +61,7 @@
 		"coverage": "pkgwrap --coverage --jest",
 		"docs": "pkgwrap --docs",
 		"lint": "pkgwrap --lint",
-		"prepublishOnly": "yarn run all",
+		"manifest": "npm pack --dry-run",
 		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
 		"test": "jest"
 	}
