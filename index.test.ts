@@ -3,6 +3,7 @@
 const debug = require("debug")("keys.test");
 
 import {regexUUID} from "util.constants";
+import "util.string";
 import {Keys} from "./index";
 
 test("Test creation of a Keys object", () => {
@@ -167,4 +168,22 @@ test("Retrieve a value using next() after at()", () => {
 	expect(keys.lastID).toBe(56);
 
 	expect(keys.size).toBe(5);
+});
+
+test("Retrieve a value using at with a string index to be hashed", () => {
+	const keys = new Keys();
+
+	expect(keys).toBeDefined();
+	expect(keys.size).toBe(0);
+	expect(keys.lastID).toBe(-1);
+
+	const s = "test string 1";
+	const hashCode = s.hashCode();
+	expect(hashCode).toBe(3161057047);
+
+	const key = keys.at(s);
+
+	expect(key).toBeDefined();
+	expect(keys.contains(hashCode)).toBe(true);
+	expect(key).toMatch(regexUUID);
 });
