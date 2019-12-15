@@ -1,5 +1,3 @@
-"use strict";
-
 const debug = require("debug")("keys.test");
 
 import {regexUUID} from "util.constants";

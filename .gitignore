@@ -38,6 +38,14 @@ jspm_packages
 .DS_Store
 tmp-unit-test-data
 
+.git
+build
+coverage
+dist
+docs
+highlights
+vendor
+
 *.tgz
 *.js
 *.js.map
@@ -46,5 +54,6 @@ tmp-unit-test-data
 !gulpfile.js
 !docs/**/*.js
 !jest.config.js
+!jest.setup.js
 !webpack.config.js
 tsconfig.tsbuildinfo

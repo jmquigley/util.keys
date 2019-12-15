@@ -1,5 +1,3 @@
-"use strict";
-
 import "util.string";
 import {getUUID} from "util.toolbox";
 

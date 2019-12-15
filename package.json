@@ -1,6 +1,6 @@
 {
 	"name": "util.keys",
-	"version": "0.0.21",
+	"version": "0.0.22",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Maintains a set of unique keys generated for a react component",
 	"private": false,
@@ -15,6 +15,7 @@
 	"engines": {
 		"node": ">=7.x"
 	},
+	"prettier": "@jmquigley/prettier-config",
 	"main": "./index.umd.min.js",
 	"module": "./index.es.min.js",
 	"types": "./index.d.ts",
@@ -23,36 +24,36 @@
 		"index.d.ts"
 	],
 	"dependencies": {
-		"util.constants": "^0.0.26",
-		"util.string": "^0.0.31",
-		"util.toolbox": "^0.0.80"
+		"util.constants": "^0.0.30",
+		"util.string": "^0.0.36",
+		"util.toolbox": "^0.0.86"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.4.4",
-		"@babel/core": "^7.4.5",
-		"@babel/plugin-proposal-class-properties": "^7.4.4",
-		"@babel/plugin-proposal-decorators": "^7.4.4",
-		"@babel/plugin-transform-modules-commonjs": "^7.4.4",
-		"@babel/plugin-transform-modules-umd": "^7.2.0",
-		"@babel/plugin-transform-runtime": "^7.4.4",
-		"@babel/preset-env": "^7.4.5",
-		"@babel/preset-typescript": "^7.3.3",
-		"@babel/runtime": "^7.4.5",
-		"@types/jest": "^24.0.13",
-		"@types/node": "^12.0.5",
+		"@babel/cli": "^7.7.5",
+		"@babel/core": "^7.7.5",
+		"@babel/plugin-proposal-class-properties": "^7.7.4",
+		"@babel/plugin-proposal-decorators": "^7.7.4",
+		"@babel/plugin-transform-modules-commonjs": "^7.7.5",
+		"@babel/plugin-transform-modules-umd": "^7.7.4",
+		"@babel/plugin-transform-runtime": "^7.7.6",
+		"@babel/preset-env": "^7.7.6",
+		"@babel/preset-typescript": "^7.7.4",
+		"@babel/runtime": "^7.7.6",
+		"@jmquigley/prettier-config": "^1.0.0",
+		"@types/jest": "^24.0.23",
+		"@types/node": "^12.12.17",
 		"babel-loader": "^8.0.6",
-		"babel-minify": "^0.5.0",
-		"babel-preset-minify": "^0.5.0",
-		"coveralls": "^3.0.4",
+		"babel-minify": "^0.5.1",
+		"babel-preset-minify": "^0.5.1",
+		"coveralls": "^3.0.9",
 		"debug": "^4.1.1",
-		"jest": "^24.8.0",
-		"prettier": "^1.17.1",
-		"tslint": "^5.17.0",
+		"jest": "^24.9.0",
+		"tslint": "^5.20.1",
 		"tslint-config-prettier": "^1.18.0",
-		"typescript": "^3.5.1",
-		"util.pkgwrap": "^0.0.112",
-		"webpack": "^4.33.0",
-		"webpack-cli": "^3.3.2"
+		"typescript": "^3.7.3",
+		"util.pkgwrap": "^0.0.115",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.10"
 	},
 	"pkgwrap": {
 		"cleanup": [
@@ -63,7 +64,7 @@
 	"scripts": {
 		"all": "yarn install && yarn build && yarn docs && yarn test && yarn manifest",
 		"build": "yarn lint && yarn prettier && yarn build:umd && yarn build:es && yarn build:cjs",
-		"build:cjs": "babel index.ts --sourceType module --out-file index.cjs.min.js",
+		"build:cjs": "babel index.ts --source-type module --out-file index.cjs.min.js",
 		"build:es": "minify index.js --sourceType module --out-file index.es.min.js",
 		"build:umd": "pkgwrap --build --webpack",
 		"clean": "pkgwrap --clean",
@@ -72,7 +73,7 @@
 		"docs": "pkgwrap --docs",
 		"lint": "pkgwrap --lint",
 		"manifest": "npm pack --dry-run",
-		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
+		"prettier": "pkgwrap --prettier",
 		"test": "jest"
 	}
 }
